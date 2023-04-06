@@ -1,3 +1,4 @@
+import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/nullability_suffix.dart';
 import 'package:bless_generator/src/generators/bless_base_generator.dart';
 
@@ -8,7 +9,10 @@ class CopyWithGenerator extends BlessBaseGenerator {
 
   @override
   String? generate(BlessDeclaration bless) {
-    if (bless.constructor == null || bless.isEnum) {
+    if (bless.constructor == null ||
+        bless.isEnum ||
+        (bless.element is ClassElement &&
+            (bless.element as ClassElement).isAbstract)) {
       return null;
     }
 

@@ -5,3 +5,7 @@
 ## 0.0.2
 
 - Left and right trim
+
+## 0.0.3
+
+- Fix creating copyWith with calling abstract constructor

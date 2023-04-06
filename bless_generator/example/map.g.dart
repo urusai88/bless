@@ -219,6 +219,16 @@ extension GameState2BlessExtension on GameState2 {
 }
 
 extension AuthStateBlessExtension on AuthState {
+  bool get isSuccess => this is AuthSuccessState;
+
+  bool get isFailure => this is AuthFailureState;
+
+  AuthSuccessState? get asSuccess =>
+      this is AuthSuccessState ? this as AuthSuccessState : null;
+
+  AuthFailureState? get asFailure =>
+      this is AuthFailureState ? this as AuthFailureState : null;
+
   T map<T>({
     required T Function(AuthSuccessState success) success,
     required T Function(AuthFailureState failure) failure,
@@ -244,5 +254,21 @@ extension AuthStateBlessExtension on AuthState {
     } else {
       return orElse(this);
     }
+  }
+}
+
+extension AuthFailureStateBlessExtension on AuthFailureState {
+  AuthFailureState copyWith({
+    String? error,
+  }) {
+    return AuthFailureState(
+      error: error ?? this.error,
+    );
+  }
+}
+
+extension AuthSuccessStateBlessExtension on AuthSuccessState {
+  AuthSuccessState copyWith() {
+    return const AuthSuccessState();
   }
 }
