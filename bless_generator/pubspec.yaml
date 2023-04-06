@@ -1,0 +1,26 @@
+name: bless_generator
+description: A Bless generator
+version: 0.0.1
+repository: https://github.com/urusai88/bless
+
+publish_to: 'none'
+
+environment:
+  sdk: '>=2.19.0 <3.0.0'
+
+dependencies:
+  source_gen: ^1.2.0
+  analyzer: ^5.1.0
+  build: ^2.3.0
+  json_annotation: ">=1.0.0"
+  bless_annotation:
+    # path: ./../bless_annotation
+    git:
+      url: https://github.com/urusai/bless.git
+      path: bless_annotation
+
+dev_dependencies:
+  lints: ^2.0.0
+  test: ^1.21.0
+  build_runner: ^2.3.0
+  source_gen_test: ^1.0.0

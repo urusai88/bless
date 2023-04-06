@@ -1,0 +1,26 @@
+targets:
+  $default:
+    builders:
+      source_gen|combining_builder:
+        options:
+          ignore_for_file:
+            - lines_longer_than_80_chars
+            - text_direction_code_point_in_literal
+            - library_private_types_in_public_api
+            - unused_element
+
+      bless_generator:
+        generate_for:
+          - example/*
+
+builders:
+  bless_generator:
+    import: "package:bless_generator/builder.dart"
+    builder_factories:
+      - "bless"
+    build_extensions:
+      ".dart":
+        - "bless_generator.g.dart"
+    auto_apply: dependents
+    applies_builders: [ "source_gen|combining_builder" ]
+    build_to: cache

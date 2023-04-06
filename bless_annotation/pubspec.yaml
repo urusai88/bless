@@ -1,0 +1,13 @@
+name: bless_annotation
+description: An annotation for bless
+version: 0.0.1
+repository: https://github.com/urusai88/bless
+
+publish_to: 'none'
+
+environment:
+  sdk: '>=2.19.0 <3.0.0'
+
+dev_dependencies:
+  lints: ^2.0.0
+  meta: ^1.9.0
