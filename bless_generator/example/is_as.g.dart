@@ -33,15 +33,14 @@ extension BaseStateBlessExtension on BaseState {
 }
 
 extension SuccessBlessExtension on Success {
-  bool get isSuccessGuard => this is SuccessGuard;
+  bool get isGuard => this is SuccessGuard;
 
-  bool get isSuccessUser => this is SuccessUser;
+  bool get isUser => this is SuccessUser;
 
-  SuccessGuard? get asSuccessGuard =>
+  SuccessGuard? get asGuard =>
       this is SuccessGuard ? this as SuccessGuard : null;
 
-  SuccessUser? get asSuccessUser =>
-      this is SuccessUser ? this as SuccessUser : null;
+  SuccessUser? get asUser => this is SuccessUser ? this as SuccessUser : null;
 }
 
 extension BaseState2BlessExtension on BaseState2 {
@@ -69,14 +68,14 @@ extension BaseState2BlessExtension on BaseState2 {
 }
 
 extension _SuccessBlessExtension on _Success {
-  bool get isSuccessGuard => this is _SuccessGuard;
+  bool get isGuard => this is _SuccessGuard;
 
-  bool get isSuccessUser => this is _SuccessUser;
+  bool get isUser => this is _SuccessUser;
 
-  _SuccessGuard? get asSuccessGuard =>
+  _SuccessGuard? get asGuard =>
       this is _SuccessGuard ? this as _SuccessGuard : null;
 
-  _SuccessUser? get asSuccessUser =>
+  _SuccessUser? get asUser =>
       this is _SuccessUser ? this as _SuccessUser : null;
 }
 

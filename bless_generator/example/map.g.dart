@@ -57,27 +57,27 @@ extension BaseStateBlessExtension on BaseState {
 
 extension SuccessBlessExtension on Success {
   T map<T>({
-    required T Function(SuccessGuard successGuard) successGuard,
-    required T Function(SuccessUser successUser) successUser,
+    required T Function(SuccessGuard guard) guard,
+    required T Function(SuccessUser user) user,
   }) {
     if (this is SuccessGuard) {
-      return successGuard(this as SuccessGuard);
+      return guard(this as SuccessGuard);
     } else if (this is SuccessUser) {
-      return successUser(this as SuccessUser);
+      return user(this as SuccessUser);
     }
 
     throw 'Please run "dart run build_runner build -d"';
   }
 
   T maybeMap<T>({
-    T Function(SuccessGuard successGuard)? successGuard,
-    T Function(SuccessUser successUser)? successUser,
+    T Function(SuccessGuard guard)? guard,
+    T Function(SuccessUser user)? user,
     required T Function(Success) orElse,
   }) {
-    if (this is SuccessGuard && successGuard != null) {
-      return successGuard(this as SuccessGuard);
-    } else if (this is SuccessUser && successUser != null) {
-      return successUser(this as SuccessUser);
+    if (this is SuccessGuard && guard != null) {
+      return guard(this as SuccessGuard);
+    } else if (this is SuccessUser && user != null) {
+      return user(this as SuccessUser);
     } else {
       return orElse(this);
     }
@@ -133,27 +133,27 @@ extension BaseState2BlessExtension on BaseState2 {
 
 extension _SuccessBlessExtension on _Success {
   T map<T>({
-    required T Function(_SuccessGuard successGuard) successGuard,
-    required T Function(_SuccessUser successUser) successUser,
+    required T Function(_SuccessGuard guard) guard,
+    required T Function(_SuccessUser user) user,
   }) {
     if (this is _SuccessGuard) {
-      return successGuard(this as _SuccessGuard);
+      return guard(this as _SuccessGuard);
     } else if (this is _SuccessUser) {
-      return successUser(this as _SuccessUser);
+      return user(this as _SuccessUser);
     }
 
     throw 'Please run "dart run build_runner build -d"';
   }
 
   T maybeMap<T>({
-    T Function(_SuccessGuard successGuard)? successGuard,
-    T Function(_SuccessUser successUser)? successUser,
+    T Function(_SuccessGuard guard)? guard,
+    T Function(_SuccessUser user)? user,
     required T Function(_Success) orElse,
   }) {
-    if (this is _SuccessGuard && successGuard != null) {
-      return successGuard(this as _SuccessGuard);
-    } else if (this is _SuccessUser && successUser != null) {
-      return successUser(this as _SuccessUser);
+    if (this is _SuccessGuard && guard != null) {
+      return guard(this as _SuccessGuard);
+    } else if (this is _SuccessUser && user != null) {
+      return user(this as _SuccessUser);
     } else {
       return orElse(this);
     }
@@ -162,27 +162,27 @@ extension _SuccessBlessExtension on _Success {
 
 extension GameStateBlessExtension on GameState {
   T map<T>({
-    required T Function(SuccessGameState successGameState) successGameState,
-    required T Function(LoadingGameState loadingGameState) loadingGameState,
+    required T Function(SuccessGameState success) success,
+    required T Function(LoadingGameState loading) loading,
   }) {
     if (this is SuccessGameState) {
-      return successGameState(this as SuccessGameState);
+      return success(this as SuccessGameState);
     } else if (this is LoadingGameState) {
-      return loadingGameState(this as LoadingGameState);
+      return loading(this as LoadingGameState);
     }
 
     throw 'Please run "dart run build_runner build -d"';
   }
 
   T maybeMap<T>({
-    T Function(SuccessGameState successGameState)? successGameState,
-    T Function(LoadingGameState loadingGameState)? loadingGameState,
+    T Function(SuccessGameState success)? success,
+    T Function(LoadingGameState loading)? loading,
     required T Function(GameState) orElse,
   }) {
-    if (this is SuccessGameState && successGameState != null) {
-      return successGameState(this as SuccessGameState);
-    } else if (this is LoadingGameState && loadingGameState != null) {
-      return loadingGameState(this as LoadingGameState);
+    if (this is SuccessGameState && success != null) {
+      return success(this as SuccessGameState);
+    } else if (this is LoadingGameState && loading != null) {
+      return loading(this as LoadingGameState);
     } else {
       return orElse(this);
     }
@@ -191,27 +191,56 @@ extension GameStateBlessExtension on GameState {
 
 extension GameState2BlessExtension on GameState2 {
   T map<T>({
-    required T Function(GameState2Success gameState2Success) gameState2Success,
-    required T Function(GameState2Loading gameState2Loading) gameState2Loading,
+    required T Function(GameState2Success success) success,
+    required T Function(GameState2Loading loading) loading,
   }) {
     if (this is GameState2Success) {
-      return gameState2Success(this as GameState2Success);
+      return success(this as GameState2Success);
     } else if (this is GameState2Loading) {
-      return gameState2Loading(this as GameState2Loading);
+      return loading(this as GameState2Loading);
     }
 
     throw 'Please run "dart run build_runner build -d"';
   }
 
   T maybeMap<T>({
-    T Function(GameState2Success gameState2Success)? gameState2Success,
-    T Function(GameState2Loading gameState2Loading)? gameState2Loading,
+    T Function(GameState2Success success)? success,
+    T Function(GameState2Loading loading)? loading,
     required T Function(GameState2) orElse,
   }) {
-    if (this is GameState2Success && gameState2Success != null) {
-      return gameState2Success(this as GameState2Success);
-    } else if (this is GameState2Loading && gameState2Loading != null) {
-      return gameState2Loading(this as GameState2Loading);
+    if (this is GameState2Success && success != null) {
+      return success(this as GameState2Success);
+    } else if (this is GameState2Loading && loading != null) {
+      return loading(this as GameState2Loading);
+    } else {
+      return orElse(this);
+    }
+  }
+}
+
+extension AuthStateBlessExtension on AuthState {
+  T map<T>({
+    required T Function(AuthSuccessState success) success,
+    required T Function(AuthFailureState failure) failure,
+  }) {
+    if (this is AuthSuccessState) {
+      return success(this as AuthSuccessState);
+    } else if (this is AuthFailureState) {
+      return failure(this as AuthFailureState);
+    }
+
+    throw 'Please run "dart run build_runner build -d"';
+  }
+
+  T maybeMap<T>({
+    T Function(AuthSuccessState success)? success,
+    T Function(AuthFailureState failure)? failure,
+    required T Function(AuthState) orElse,
+  }) {
+    if (this is AuthSuccessState && success != null) {
+      return success(this as AuthSuccessState);
+    } else if (this is AuthFailureState && failure != null) {
+      return failure(this as AuthFailureState);
     } else {
       return orElse(this);
     }

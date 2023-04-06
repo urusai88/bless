@@ -58,3 +58,12 @@ class GameState2Loading extends GameState2 {}
 
 @BlessIt.only(map: true)
 class GameState2Success extends GameState2 {}
+
+@BlessIt.only(map: true)
+abstract class AuthState {}
+
+@BlessIt.only(map: true)
+class AuthFailureState extends AuthState {}
+
+@BlessIt.only(map: true)
+class AuthSuccessState extends AuthState {}

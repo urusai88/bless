@@ -29,11 +29,43 @@ class BlessFactory {
     }
 
     if (element is ClassElement) {
+      var prefix = 0;
+      var suffix = 0;
+
+      final names = subElements.map((e) => e.name);
+
+      if (names.isNotEmpty) {
+        outer:
+        for (var i = 1;; ++i) {
+          final sl = names.map((e) => e.substring(0, i));
+          final f = sl.first;
+          for (final s in sl) {
+            if (s != f) {
+              break outer;
+            }
+          }
+          prefix = i;
+        }
+
+        outer:
+        for (var i = 1;; ++i) {
+          final sl = names.map((e) => e.substring(e.length - i));
+          final f = sl.first;
+          for (final s in sl) {
+            if (s != f) {
+              break outer;
+            }
+          }
+          suffix = i;
+        }
+      }
+
       for (final subElement in subElements.reversed) {
+        final argName = subElement.name.substring(prefix);
         blessEntityList.add(
           BlessClassEntity(
             typeName: subElement.name,
-            argName: subElement.name,
+            argName: argName.substring(0, argName.length - suffix),
           ),
         );
       }
