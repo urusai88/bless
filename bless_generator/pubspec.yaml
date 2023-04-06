@@ -16,7 +16,7 @@ dependencies:
   bless_annotation:
     # path: ./../bless_annotation
     git:
-      url: https://github.com/urusai/bless.git
+      url: https://github.com/urusai88/bless.git
       path: bless_annotation
       ref: master
 
