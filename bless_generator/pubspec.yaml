@@ -1,6 +1,6 @@
 name: bless_generator
 description: A Bless generator
-version: 0.0.1
+version: 0.0.2
 repository: https://github.com/urusai88/bless
 
 publish_to: 'none'
