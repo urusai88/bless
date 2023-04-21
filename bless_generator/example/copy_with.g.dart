@@ -88,3 +88,21 @@ extension GenericsBlessExtension<T1, T2> on Generics<T1, T2> {
     );
   }
 }
+
+extension GenericPropertyBlessExtension on GenericProperty {
+  GenericProperty copyWith({
+    List<String>? strings,
+  }) {
+    return GenericProperty(
+      strings: strings ?? this.strings,
+    );
+  }
+
+  GenericProperty copyWithNull({
+    bool? strings,
+  }) {
+    return GenericProperty(
+      strings: strings == true ? null : this.strings,
+    );
+  }
+}

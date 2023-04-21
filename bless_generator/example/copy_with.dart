@@ -47,3 +47,10 @@ class Generics<T1, T2> {
   final int? b;
   final T2 c;
 }
+
+@BlessIt.only(copyWith: true)
+class GenericProperty {
+  const GenericProperty({required this.strings});
+
+  final List<String>? strings;
+}

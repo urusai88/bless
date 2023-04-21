@@ -9,3 +9,7 @@
 ## 0.0.3
 
 - Fix creating copyWith with calling abstract constructor
+
+## 0.0.4
+
+- Fix nested generics in copyWith generator

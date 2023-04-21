@@ -27,7 +27,7 @@ class CopyWithGenerator extends BlessBaseGenerator {
     final constructList = <String>[];
 
     for (final param in bless.constructor!.parameters) {
-      final argumentType = param.type.element!.name!;
+      final argumentType = param.type.getDisplayString(withNullability: false);
       final argumentName = param.name;
 
       argumentList.add('$argumentType? $argumentName');
